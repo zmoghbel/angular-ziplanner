@@ -1,0 +1,36 @@
+{
+    "todos":[
+        {
+            "id": 1,
+            "title": "Work on Zipplaner App",
+            "date": "2021-03-03",
+            "time": "13:00",
+            "description": "this is first test",
+            "isDone": true,
+            "alarmOn": true
+          },
+          {
+            "id": 2,
+            "title": "Learn English",
+            "date": "2021-03-03",
+            "time": "14:00",
+            "description": "",
+            "isDone": false,
+            "alarmOn": false
+          }
+    ],
+    "users":[
+        {
+            "id":"1",
+            "username":"admin",
+            "email":"admin@admin.com",
+            "isadmin":true
+        },
+        {
+            "id":"2",
+            "username":"user",
+            "email":"user@user.com",
+            "isadmin":false
+        }
+    ]
+}

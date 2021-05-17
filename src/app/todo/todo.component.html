@@ -1,0 +1,16 @@
+
+    <td>
+     <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (change) = "isDone()"/>
+      </div>    
+    </td>
+    <td><a [title] = "todo.title + ' Details'" [routerLink] = "['/todos',todo.id]">{{todo.title}}</a></td>
+    <td>{{todo.date}}</td>
+    <td>{{todo.time}}</td>
+    <td>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="{{todo.id}}" />
+        <label class="form-check-label" for="flexSwitchCheckDefault">Alarm</label>
+      </div>
+    </td>
+

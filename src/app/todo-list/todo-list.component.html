@@ -1,0 +1,32 @@
+<h1 class="mt-4">ToDo List</h1>
+<table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">title</th>
+        <th scope="col">date</th>
+        <th scope="col">time</th>
+        <th scope="col">alarm</th>
+      </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let todo of todos" app-todo [todo] = "todo">
+        </tr>
+    </tbody>
+  </table>
+
+
+<!--<div *ngFor="let todo of todos">
+    <h3>
+        <a [title] = "todo.name + ' details'">
+         {{todo.title}}
+        </a>
+    </h3>
+    <p *ngIf= "todo.description">
+        {{todo.description}}
+    </p>
+    <button (click)="edit()" class="btn btn-primary">
+        Edit
+    </button>
+    <app-todo-details [todo] = "todo" (notify)="onNotify()"></app-todo-details>
+</div>-->

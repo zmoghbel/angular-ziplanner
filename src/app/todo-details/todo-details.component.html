@@ -1,0 +1,16 @@
+<h2>Todo Details</h2>
+
+<div *ngIf = "todo">
+        <div>Title</div><div class="alert alert-primary">{{todo.title}}</div>
+        <div>Description</div><div class="alert alert-primary">{{todo.description}}</div>
+        <div>Date</div><div class="alert alert-primary">{{todo.date}}</div>
+        <div>Time</div><div class="alert alert-primary">{{todo.time}}</div>
+</div>
+
+<div class='row'>     
+<div class="px-3" *ngIf= "!todo.isDone"><button type="button" class="btn btn-info">isDone</button></div>
+<div class="px-3" *ngIf= "todo.alarmOn"><button type="button" class="btn btn-danger">Turn off Alarm</button></div>
+<div class="px-3" *ngIf= "!todo.alarmOn"><button type="button" class="btn btn-success">Turn on Alarm</button></div>
+<button type="button" class="btn btn-secondary px-3">Edit</button>
+</div>
+
