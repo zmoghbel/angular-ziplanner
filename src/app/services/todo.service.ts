@@ -1,10 +1,16 @@
 import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http"
+import { from, Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class TodoService{
-    Todos: Array<Todo> = [
+    private apiUrl = "http://localhost:5001/todos";
+
+    constructor( private http: HttpClient){}
+
+    /*Todos: Array<Todo> = [
         {
           id: 1,
           title: 'Work on Zipplaner App',
@@ -23,10 +29,10 @@ export class TodoService{
             isDone: false,
             alarmOn: false
         }
-      ];
+      ];*/
 
-    getTodos(){
-        return this.Todos;
+    getTodos() : Observable<Todo[]>{
+        return this.http.get<Todo[]>(this.apiUrl);
     }
 }
 
