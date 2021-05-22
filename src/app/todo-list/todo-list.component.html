@@ -6,11 +6,11 @@
         <th scope="col">title</th>
         <th scope="col">date</th>
         <th scope="col">time</th>
-        <th scope="col">alarm</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody >
-        <tr *ngFor="let todo of todos" app-todo [todo] = "todo">
+        <tr *ngFor="let todo of todos" app-todo [todo] = "todo" (onDeleteTodo) = "deleteTodo(todo)">
         </tr>
     </tbody>
   </table>

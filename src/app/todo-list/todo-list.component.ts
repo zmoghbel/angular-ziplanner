@@ -23,4 +23,8 @@ export class TodoListComponent implements OnInit {
     window.alert('You will be notified when the product goes on sale');
   }
 
+  deleteTodo(todo : Todo){
+    this.todoService.deleteTodo(todo).subscribe(() => (this.todos = this.todos.filter((t) => t.id !== todo.id)));
+  }
+
 }

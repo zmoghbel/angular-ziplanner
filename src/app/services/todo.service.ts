@@ -10,29 +10,13 @@ export class TodoService{
 
     constructor( private http: HttpClient){}
 
-    /*Todos: Array<Todo> = [
-        {
-          id: 1,
-          title: 'Work on Zipplaner App',
-          date: '2021-03-03',
-          time: '13:00',
-          description: 'this is first test',
-          isDone: true,
-          alarmOn: true
-        },
-        {
-            id: 2,
-            title: 'Learn English',
-            date: '2021-03-03',
-            time: '14:00',
-            description: '',
-            isDone: false,
-            alarmOn: false
-        }
-      ];*/
-
     getTodos() : Observable<Todo[]>{
         return this.http.get<Todo[]>(this.apiUrl);
+    }
+
+    deleteTodo(todo : Todo) : Observable<Todo>{
+        const url = `${this.apiUrl}/${todo.id}`;
+        return this.http.delete<Todo>(url);
     }
 }
 
