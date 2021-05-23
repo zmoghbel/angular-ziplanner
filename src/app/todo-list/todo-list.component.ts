@@ -27,4 +27,14 @@ export class TodoListComponent implements OnInit {
     this.todoService.deleteTodo(todo).subscribe(() => (this.todos = this.todos.filter((t) => t.id !== todo.id)));
   }
 
+  toggleReminder(todo : Todo){
+    todo.alarmOn = !todo.alarmOn;
+    this.todoService.updateTodo(todo).subscribe();
+  }
+
+  doneTodo(todo : Todo){
+    todo.isDone = !todo.isDone;
+    this.todoService.updateTodo(todo).subscribe();
+  }
+
 }

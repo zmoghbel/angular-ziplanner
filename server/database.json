@@ -6,26 +6,35 @@
       "date": "2021-03-03",
       "time": "13:00",
       "description": "this is first test",
-      "isDone": true,
-      "alarmOn": true
+      "isDone": false,
+      "alarmOn": false
     },
     {
-        "id": 2,
-        "title": "Learn English",
-        "date": "2021-05-30",
-        "time": "8:00",
-        "description": "",
-        "isDone": false,
-        "alarmOn": false
+      "id": 2,
+      "title": "Learn English",
+      "date": "2021-05-30",
+      "time": "8:00",
+      "description": "",
+      "isDone": false,
+      "alarmOn": true
     },
     {
       "id": 3,
       "title": "Test",
       "date": "2021-05-30",
-      "time": "14:00",
+      "time": "8:00",
       "description": "",
       "isDone": false,
       "alarmOn": false
+    },
+    {
+      "id": 4,
+      "title": "Take Ali to the park",
+      "date": "2021-05-30",
+      "time": "8:00",
+      "description": "",
+      "isDone": false,
+      "alarmOn": true
     }
   ],
   "users": [

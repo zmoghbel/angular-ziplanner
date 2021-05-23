@@ -1,17 +1,15 @@
 
     <td>
      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (change) = "isDone()"/>
+        <input class="form-check-input" type="checkbox" [checked] = "todo.isDone" id="flexCheckDefault" (change) = "isDone(todo)"/>
       </div>    
     </td>
     <td><a [title] = "todo.title + ' Details'" [routerLink] = "['/todos',todo.id]">{{todo.title}}</a></td>
     <td>{{todo.date}}</td>
     <td>{{todo.time}}</td>
     <td>
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="{{todo.id}}" />
-        <label class="form-check-label" for="flexSwitchCheckDefault">Alarm</label>
-      </div>
+      <fa-icon (click) = "onToggle(todo)" [icon] = "faBell" [ngStyle] = "{'color' : todo.alarmOn ? 'yellow' : ''}"></fa-icon>
+      &nbsp;&nbsp;
       <fa-icon (click) = "onDelete(todo)" [icon] = "faTimes" [ngStyle] = "{'color' : 'red'}"></fa-icon>
     </td>
 
