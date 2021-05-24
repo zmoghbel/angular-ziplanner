@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,8 +11,8 @@ import { TodoService } from './services/todo.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddTodoComponent } from './add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +21,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TodoComponent,
     TodoListComponent,
     NavbarComponent,
-    TodoDetailsComponent
+    TodoDetailsComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

@@ -37,4 +37,8 @@ export class TodoListComponent implements OnInit {
     this.todoService.updateTodo(todo).subscribe();
   }
 
+  addTodo(todo : Todo){
+    this.todoService.addTodo(todo).subscribe((todo) => (this.todos.push(todo)));
+  }
+
 }

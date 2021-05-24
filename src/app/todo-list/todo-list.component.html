@@ -17,19 +17,4 @@
         </tr>
     </tbody>
   </table>
-
-
-<!--<div *ngFor="let todo of todos">
-    <h3>
-        <a [title] = "todo.name + ' details'">
-         {{todo.title}}
-        </a>
-    </h3>
-    <p *ngIf= "todo.description">
-        {{todo.description}}
-    </p>
-    <button (click)="edit()" class="btn btn-primary">
-        Edit
-    </button>
-    <app-todo-details [todo] = "todo" (notify)="onNotify()"></app-todo-details>
-</div>-->
+  <app-add-todo (onAddTodo)="addTodo($event)"></app-add-todo>
