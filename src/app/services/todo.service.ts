@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { from, Observable } from "rxjs";
+import { Todo } from "../models/todo";
 
 const httpOptions = {
     headers : new HttpHeaders ({
@@ -32,24 +33,5 @@ export class TodoService{
 
     addTodo(todo: Todo) : Observable<Todo>{
         return this.http.post<Todo>(this.apiUrl, todo, httpOptions);
-    }
-}
-
-export class Todo{
-    public id?: number;
-    public title: string;
-    public date: string;
-    public time: string;
-    public description: string;
-    public isDone: boolean = false;
-    public alarmOn: boolean = false;
-
-    constructor(id: number, title: string, date: string, time: string, isDone: boolean, alarmOn: boolean){
-        this.id = id;
-        this.title = title;
-        this.date = date;
-        this.time = time;
-        this.isDone = isDone;
-        this.alarmOn = alarmOn;
     }
 }
