@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../services/todo.service';
+import { Todo } from '../../models/todo';
 import { DatePipe } from '@angular/common';
 
 @Component({

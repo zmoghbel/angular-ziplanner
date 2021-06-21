@@ -1,7 +1,7 @@
 import { Component, Injectable, Input, OnInit} from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TodoService } from '../services/todo.service';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-details',

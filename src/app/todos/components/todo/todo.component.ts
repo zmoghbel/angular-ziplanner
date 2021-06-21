@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Todo, TodoService } from '../services/todo.service';
+import { TodoService } from '../../services/todo.service';
+import { Todo } from '../../models/todo';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 

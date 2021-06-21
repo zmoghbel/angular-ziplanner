@@ -5,14 +5,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { TodoComponent } from './todo/todo.component';
-import { TodoService } from './services/todo.service';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { TodoDetailsComponent } from './todo-details/todo-details.component';
+import { HomeComponent } from './pages/home/home.component';
+import { TodoComponent } from './todos/components/todo/todo.component';
+import { TodoService } from './todos/services/todo.service';
+import { TodoListComponent } from './todos/components/todo-list/todo-list.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { TodoDetailsComponent } from './todos/components/todo-details/todo-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AddTodoComponent } from './add-todo/add-todo.component';
+import { AddTodoComponent } from './todos/components/add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
