@@ -13,6 +13,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { TodoDetailsComponent } from './todos/components/todo-details/todo-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddTodoComponent } from './todos/components/add-todo/add-todo.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AddTodoComponent } from './todos/components/add-todo/add-todo.component
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
