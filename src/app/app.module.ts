@@ -14,6 +14,9 @@ import { TodoDetailsComponent } from './todos/components/todo-details/todo-detai
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddTodoComponent } from './todos/components/add-todo/add-todo.component';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { StoreModule } from '@ngrx/store';
     HttpClientModule,
     FontAwesomeModule,
     FormsModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([])
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

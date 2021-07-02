@@ -44,13 +44,6 @@
       "id": 6
     },
     {
-      "title": "Test",
-      "description": "",
-      "date": "2021-05-24",
-      "isDone": false,
-      "id": 8
-    },
-    {
       "title": "check date",
       "description": "",
       "date": "2021-05-24",
@@ -58,18 +51,11 @@
       "id": 9
     },
     {
-      "title": "call zahra",
-      "description": "",
-      "date": "2021-05-24",
-      "isDone": false,
-      "id": 10
-    },
-    {
       "title": "meting with mohammad ",
       "description": "",
       "date": "2021-05-26",
       "time": "",
-      "alarmOn": false,
+      "alarmOn": true,
       "isDone": false,
       "id": 11
     }
