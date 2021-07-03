@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../models/todo';
+import { TodoState } from '../../store/todo.reducer';
+import { Store } from '@ngrx/store';
+import { addTodo } from '../../store/todo.actions';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,7 +13,7 @@ import { Todo } from '../../models/todo';
 export class TodoListComponent implements OnInit {
   todos: Array<Todo> = new Array<Todo>();
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private store: Store<TodoState>) { }
 
   ngOnInit() {
     this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
@@ -39,7 +42,8 @@ export class TodoListComponent implements OnInit {
   }
 
   addTodo(todo : Todo){
-    this.todoService.addTodo(todo).subscribe((todo) => (this.todos.push(todo)));
+    //this.todoService.addTodo(todo).subscribe((todo) => (this.todos.push(todo)));
+    this.store.dispatch(addTodo({ todo: todo }));
   }
 
 }

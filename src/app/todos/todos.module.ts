@@ -10,16 +10,22 @@ import { StoreModule } from '@ngrx/store';
 import * as fromTodo from './store/todo.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoEffects } from './store/todo.effects';
+import { TodoDetailsComponent } from "./components/todo-details/todo-details.component";
+import { TodosRoutingModule } from "./todos-routing.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     TodoComponent,
     AddTodoComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoDetailsComponent
   ],
   imports: [
     CommonModule,
+    TodosRoutingModule,
     FormsModule,
+    FontAwesomeModule,
     StoreModule.forFeature(fromTodo.todoesFeatureKey, fromTodo.reducer),
     EffectsModule.forFeature([TodoEffects])
   ],
@@ -27,7 +33,8 @@ import { TodoEffects } from './store/todo.effects';
   exports: [
     TodoComponent,
     AddTodoComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoDetailsComponent
   ]
 })
 export class TodosModule {}

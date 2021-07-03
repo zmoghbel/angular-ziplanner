@@ -8,19 +8,26 @@ export const loadTodos = createAction(
   props<{ todos: Todo[] }>()
 );
 
+// Add Todo
+
 export const addTodo = createAction(
-  '[Todo/API] Add Todo',
+  '[Todo List Component] Add Todo',
   props<{ todo: Todo }>()
+);
+
+export const addTodoSuccess = createAction(
+  '[Todo Add Effect] Add Todo Success',
+  props<{ todo: Todo }>()
+);
+
+export const addTodoFailure = createAction(
+  '[Todo Add Effect] Add Todo  Failure',
+  props<{ error: any }>()
 );
 
 export const upsertTodo = createAction(
   '[Todo/API] Upsert Todo',
   props<{ todo: Todo }>()
-);
-
-export const addTodos = createAction(
-  '[Todo/API] Add Todos',
-  props<{ todos: Todo[] }>()
 );
 
 export const upsertTodos = createAction(
