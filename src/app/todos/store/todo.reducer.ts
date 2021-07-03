@@ -31,6 +31,17 @@ export const reducer = createReducer(
       }
     }
   ),
+  on(TodoActions.loadTodoListSuccess,
+    (state, action) => adapter.setAll(action.todos, state)
+  ),
+  on(TodoActions.loadTodoListFailure,
+    (state, action) => {
+      return {
+        ...state,
+        error: action.error
+      }
+    }
+  ),
   on(TodoActions.upsertTodo,
     (state, action) => adapter.upsertOne(action.todo, state)
   ),
@@ -48,9 +59,6 @@ export const reducer = createReducer(
   ),
   on(TodoActions.deleteTodos,
     (state, action) => adapter.removeMany(action.ids, state)
-  ),
-  on(TodoActions.loadTodos,
-    (state, action) => adapter.setAll(action.todos, state)
   ),
   on(TodoActions.clearTodos,
     state => adapter.removeAll(state)

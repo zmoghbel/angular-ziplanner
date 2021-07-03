@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody >
-        <tr *ngFor="let todo of todos" app-todo [todo] = "todo" 
+        <tr *ngFor="let todo of todos$ | async" app-todo [todo] = "todo" 
         (onDeleteTodo) = "deleteTodo(todo)" 
         (onToggleReminder) = "toggleReminder(todo)" 
         (onDoneTodo) = "doneTodo(todo)">

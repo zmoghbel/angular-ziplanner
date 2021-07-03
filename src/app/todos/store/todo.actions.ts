@@ -3,9 +3,21 @@ import { Update } from '@ngrx/entity';
 
 import { Todo } from '../models/todo';
 
-export const loadTodos = createAction(
-  '[Todo/API] Load Todos', 
+
+//Load Todo List 
+
+export const loadTodoList = createAction(
+  '[Todo List Component] Load Todo List'
+);
+
+export const loadTodoListSuccess = createAction(
+  '[Todo List Effect] Load Todo List Success', 
   props<{ todos: Todo[] }>()
+);
+
+export const loadTodoListFailure = createAction(
+  '[Todo List Effect] Load Todo List Failure', 
+  props<{ error: any }>()
 );
 
 // Add Todo

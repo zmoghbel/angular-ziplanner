@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../models/todo';
 import { TodoState } from '../../store/todo.reducer';
-import { Store } from '@ngrx/store';
-import { addTodo } from '../../store/todo.actions';
+import { select, Store } from '@ngrx/store';
+import { addTodo, loadTodoList } from '../../store/todo.actions';
+import { selectTodoList } from '../../store/todo.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,12 +13,18 @@ import { addTodo } from '../../store/todo.actions';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-  todos: Array<Todo> = new Array<Todo>();
+  todos$ : Observable<Todo[]>;
 
   constructor(private todoService: TodoService, private store: Store<TodoState>) { }
 
   ngOnInit() {
-    this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
+    //this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
+    this.store.dispatch(loadTodoList());
+    this.loadTodoList();
+  }
+
+  loadTodoList(){
+    this.todos$ = this.store.pipe(select(selectTodoList));
   }
 
   edit(){
@@ -28,7 +36,7 @@ export class TodoListComponent implements OnInit {
   }
 
   deleteTodo(todo : Todo){
-    this.todoService.deleteTodo(todo).subscribe(() => (this.todos = this.todos.filter((t) => t.id !== todo.id)));
+    //this.todoService.deleteTodo(todo).subscribe(() => (this.todos = this.todos.filter((t) => t.id !== todo.id)));
   }
 
   toggleReminder(todo : Todo){

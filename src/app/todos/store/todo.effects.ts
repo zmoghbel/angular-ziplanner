@@ -9,6 +9,7 @@ import { of } from 'rxjs';
 
 @Injectable()
 export class TodoEffects {
+
   createTodo$ = createEffect(() => {
     return this.actions$.pipe(
         ofType(fromTodoAction.addTodo),
@@ -16,6 +17,17 @@ export class TodoEffects {
           this.todoService.addTodo(action.todo).pipe(
             map(todo => fromTodoAction.addTodoSuccess({ todo })),
             catchError(error => of(fromTodoAction.addTodoFailure({ error }))))
+          ),
+    );
+  });
+
+  loadTodoList$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(fromTodoAction.loadTodoList),
+        mergeMap(action =>
+          this.todoService.getTodos().pipe(
+            map(todos => fromTodoAction.loadTodoListSuccess({ todos })),
+            catchError(error => of(fromTodoAction.loadTodoListFailure({ error }))))
           ),
     );
   });
