@@ -1,35 +1,19 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Work on Zipplaner App",
-      "date": "2021-03-03",
-      "time": "13:00",
-      "description": "this is first test",
-      "isDone": false,
-      "alarmOn": false
+      "title": "check system update",
+      "description": "",
+      "date": "",
+      "time": "",
+      "alarmOn": true,
+      "isDone": true,
+      "id": 4
     },
     {
-      "id": 2,
-      "title": "Learn English",
-      "date": "2021-05-30",
-      "time": "8:00",
+      "title": "Learn Redux/NGRX",
       "description": "",
-      "isDone": false,
-      "alarmOn": true
-    },
-    {
-      "id": 4,
-      "title": "Take Ali to the park",
-      "date": "2021-05-30",
-      "time": "8:00",
-      "description": "",
-      "isDone": false,
-      "alarmOn": true
-    },
-    {
-      "title": "Learn Redux",
-      "description": "",
+      "date": "",
+      "time": "",
       "alarmOn": true,
       "isDone": false,
       "id": 5
@@ -40,7 +24,7 @@
       "date": "",
       "time": "",
       "alarmOn": false,
-      "isDone": false,
+      "isDone": true,
       "id": 6
     },
     {
@@ -72,7 +56,8 @@
       "date": "2021-07-03",
       "time": "10:00",
       "isDone": false,
-      "id": 13
+      "id": 13,
+      "alarmOn": true
     },
     {
       "title": "NGRX",

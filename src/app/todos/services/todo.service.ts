@@ -26,9 +26,9 @@ export class TodoService{
         return this.http.delete<Todo>(url);
     }
 
-    updateTodo(todo : Todo): Observable<Todo>{
-        const url = `${this.apiUrl}/${todo.id}`;
-        return this.http.put<Todo>(url, todo, httpOptions);
+    updateTodo(todoId: string | number, changes: Partial<Todo>): Observable<Todo>{
+        const url = `${this.apiUrl}/${todoId}`;
+        return this.http.put<Todo>(url, changes, httpOptions);
     }
 
     addTodo(todo: Todo) : Observable<Todo>{

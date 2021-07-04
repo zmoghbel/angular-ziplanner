@@ -42,26 +42,14 @@ export const reducer = createReducer(
       }
     }
   ),
-  on(TodoActions.upsertTodo,
-    (state, action) => adapter.upsertOne(action.todo, state)
-  ),
-  on(TodoActions.upsertTodos,
-    (state, action) => adapter.upsertMany(action.todos, state)
-  ),
   on(TodoActions.updateTodo,
     (state, action) => adapter.updateOne(action.todo, state)
-  ),
-  on(TodoActions.updateTodos,
-    (state, action) => adapter.updateMany(action.todos, state)
   ),
   on(TodoActions.deleteTodo,
     (state, action) => adapter.removeOne(action.id, state)
   ),
   on(TodoActions.deleteTodos,
     (state, action) => adapter.removeMany(action.ids, state)
-  ),
-  on(TodoActions.clearTodos,
-    state => adapter.removeAll(state)
   ),
 );
 

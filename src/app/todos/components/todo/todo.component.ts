@@ -3,6 +3,7 @@ import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../models/todo';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { Update } from '@ngrx/entity';
 
 @Component({
   selector: '[app-todo]',

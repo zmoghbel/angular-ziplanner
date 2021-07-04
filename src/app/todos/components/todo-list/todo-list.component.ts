@@ -3,9 +3,10 @@ import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../models/todo';
 import { TodoState } from '../../store/todo.reducer';
 import { select, Store } from '@ngrx/store';
-import { addTodo, loadTodoList } from '../../store/todo.actions';
+import { addTodo, loadTodoList, updateTodo } from '../../store/todo.actions';
 import { selectTodoList } from '../../store/todo.selectors';
 import { Observable } from 'rxjs';
+import { Update } from '@ngrx/entity';
 
 @Component({
   selector: 'app-todo-list',
@@ -39,14 +40,25 @@ export class TodoListComponent implements OnInit {
     //this.todoService.deleteTodo(todo).subscribe(() => (this.todos = this.todos.filter((t) => t.id !== todo.id)));
   }
 
-  toggleReminder(todo : Todo){
-    todo.alarmOn = !todo.alarmOn;
-    this.todoService.updateTodo(todo).subscribe();
+  toggleReminder(todo : Todo){  
+    const todoUpdate: Update<Todo> = {
+      id: todo.id,
+      changes: { ...todo, alarmOn: !todo.alarmOn }
+    };
+    //todo.alarmOn = !todo.alarmOn;
+    //this.todoService.updateTodo(todo).subscribe();
+
+    this.store.dispatch(updateTodo({ todo : todoUpdate }));
   }
 
   doneTodo(todo : Todo){
-    todo.isDone = !todo.isDone;
-    this.todoService.updateTodo(todo).subscribe();
+    const todoUpdate: Update<Todo> = {
+      id: todo.id,
+      changes: { ...todo, isDone: !todo.isDone }
+    };
+    //this.todoService.updateTodo(todo).subscribe();
+
+    this.store.dispatch(updateTodo({ todo : todoUpdate }));
   }
 
   addTodo(todo : Todo){

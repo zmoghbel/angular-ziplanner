@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as fromTodoAction from './todo.actions';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, concatMap, map, mergeMap, tap } from 'rxjs/operators';
 import { TodoService } from '../services/todo.service';
 import { of } from 'rxjs';
 
@@ -31,6 +31,20 @@ export class TodoEffects {
           ),
     );
   });
+
+  updateTodo$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(fromTodoAction.updateTodo),
+        concatMap(action =>
+          this.todoService.updateTodo(
+            action.todo.id,
+            action.todo.changes
+            )
+          ),
+    );
+  },
+  {dispatch : false}
+  );
 
 
   constructor(

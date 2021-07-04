@@ -37,24 +37,11 @@ export const addTodoFailure = createAction(
   props<{ error: any }>()
 );
 
-export const upsertTodo = createAction(
-  '[Todo/API] Upsert Todo',
-  props<{ todo: Todo }>()
-);
-
-export const upsertTodos = createAction(
-  '[Todo/API] Upsert Todos',
-  props<{ todos: Todo[] }>()
-);
+// Edit Todo
 
 export const updateTodo = createAction(
-  '[Todo/API] Update Todo',
+  '[Todo List Component] Update Todo',
   props<{ todo: Update<Todo> }>()
-);
-
-export const updateTodos = createAction(
-  '[Todo/API] Update Todos',
-  props<{ todos: Update<Todo>[] }>()
 );
 
 export const deleteTodo = createAction(
@@ -67,6 +54,3 @@ export const deleteTodos = createAction(
   props<{ ids: string[] }>()
 );
 
-export const clearTodos = createAction(
-  '[Todo/API] Clear Todos'
-);
