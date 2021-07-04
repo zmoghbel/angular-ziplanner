@@ -3,7 +3,7 @@ import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../models/todo';
 import { TodoState } from '../../store/todo.reducer';
 import { select, Store } from '@ngrx/store';
-import { addTodo, loadTodoList, updateTodo } from '../../store/todo.actions';
+import * as fromTodoAction from '../../store/todo.actions';
 import { selectTodoList } from '../../store/todo.selectors';
 import { Observable } from 'rxjs';
 import { Update } from '@ngrx/entity';
@@ -20,7 +20,7 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {
     //this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
-    this.store.dispatch(loadTodoList());
+    this.store.dispatch(fromTodoAction.loadTodoList());
     this.loadTodoList();
   }
 
@@ -38,6 +38,7 @@ export class TodoListComponent implements OnInit {
 
   deleteTodo(todo : Todo){
     //this.todoService.deleteTodo(todo).subscribe(() => (this.todos = this.todos.filter((t) => t.id !== todo.id)));
+    this.store.dispatch(fromTodoAction.deleteTodo({ id: todo.id}))
   }
 
   toggleReminder(todo : Todo){  
@@ -48,7 +49,7 @@ export class TodoListComponent implements OnInit {
     //todo.alarmOn = !todo.alarmOn;
     //this.todoService.updateTodo(todo).subscribe();
 
-    this.store.dispatch(updateTodo({ todo : todoUpdate }));
+    this.store.dispatch(fromTodoAction.updateTodo({ todo : todoUpdate }));
   }
 
   doneTodo(todo : Todo){
@@ -58,12 +59,12 @@ export class TodoListComponent implements OnInit {
     };
     //this.todoService.updateTodo(todo).subscribe();
 
-    this.store.dispatch(updateTodo({ todo : todoUpdate }));
+    this.store.dispatch(fromTodoAction.updateTodo({ todo : todoUpdate }));
   }
 
   addTodo(todo : Todo){
     //this.todoService.addTodo(todo).subscribe((todo) => (this.todos.push(todo)));
-    this.store.dispatch(addTodo({ todo: todo }));
+    this.store.dispatch(fromTodoAction.addTodo({ todo: todo }));
   }
 
 }

@@ -28,13 +28,6 @@
       "id": 6
     },
     {
-      "title": "check date",
-      "description": "",
-      "date": "2021-05-24",
-      "isDone": false,
-      "id": 9
-    },
-    {
       "title": "meting with mohammad ",
       "description": "",
       "date": "2021-05-26",
@@ -42,13 +35,6 @@
       "alarmOn": true,
       "isDone": false,
       "id": 11
-    },
-    {
-      "title": "test",
-      "description": "",
-      "date": "2021-07-03",
-      "isDone": false,
-      "id": 12
     },
     {
       "title": "call zahra",
@@ -62,11 +48,10 @@
     {
       "title": "NGRX",
       "description": "",
-      "date": "2021-07-03",
-      "time": "",
-      "alarmOn": true,
+      "date": "2021-07-04",
       "isDone": false,
-      "id": 14
+      "id": 14,
+      "alarmOn": true
     }
   ],
   "users": [

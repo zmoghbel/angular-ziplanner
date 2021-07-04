@@ -45,11 +45,16 @@ export const reducer = createReducer(
   on(TodoActions.updateTodo,
     (state, action) => adapter.updateOne(action.todo, state)
   ),
-  on(TodoActions.deleteTodo,
+  on(TodoActions.deleteTodoSuccess,
     (state, action) => adapter.removeOne(action.id, state)
   ),
-  on(TodoActions.deleteTodos,
-    (state, action) => adapter.removeMany(action.ids, state)
+  on(TodoActions.deleteTodoFailure,
+    (state, action) => {
+      return {
+        ...state,
+        error: action.error
+      }
+    }
   ),
 );
 

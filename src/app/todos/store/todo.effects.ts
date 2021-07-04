@@ -46,6 +46,17 @@ export class TodoEffects {
   {dispatch : false}
   );
 
+  deleteTodo$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(fromTodoAction.deleteTodo),
+        mergeMap(action =>
+          this.todoService.deleteTodo(action.id).pipe(
+            map(() => fromTodoAction.deleteTodoSuccess({ id: action.id })),
+            catchError(error => of(fromTodoAction.deleteTodoFailure({ error }))))
+          ),
+    );
+  });
+
 
   constructor(
     private actions$: Actions,

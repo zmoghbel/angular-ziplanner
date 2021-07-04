@@ -44,13 +44,21 @@ export const updateTodo = createAction(
   props<{ todo: Update<Todo> }>()
 );
 
+// Delete Todo
+
 export const deleteTodo = createAction(
-  '[Todo/API] Delete Todo',
-  props<{ id: string }>()
+  '[Todo List Component] Delete Todo',
+  props<{ id: number }>()
 );
 
-export const deleteTodos = createAction(
-  '[Todo/API] Delete Todos',
-  props<{ ids: string[] }>()
+export const deleteTodoSuccess = createAction(
+  '[Todo Delete Effect] Delete Todo Success',
+  props<{ id: number }>()
 );
+
+export const deleteTodoFailure = createAction(
+  '[Todo Delete Effect] Delete Todo  Failure',
+  props<{ error: any }>()
+);
+
 
