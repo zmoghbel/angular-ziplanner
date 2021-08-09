@@ -1,16 +1,49 @@
 <h2>Todo Details</h2>
 
-<div *ngIf = "todo">
-        <div>Title</div><div class="alert alert-primary">{{todo.title}}</div>
-        <div>Description</div><div class="alert alert-primary">{{todo.description}}</div>
-        <div>Date</div><div class="alert alert-primary">{{todo.date}}</div>
-        <div>Time</div><div class="alert alert-primary">{{todo.time}}</div>
+<div *ngIf = "model">
+        <div class="alert alert-primary">
+
+        <label for="title">Title</label>
+        <input type="text"
+                class="form-control"
+                name="title"
+                required
+                [(ngModel)]="model.title"
+                id="title"
+                placeholder="Title">
+        
+        <label for="title">Description</label>
+        <textarea class="form-control"
+                id="description"
+                name="description"
+                required
+                [(ngModel)]="model.description"
+                placeholder="Description"></textarea>
+
+        <label for="title">Date</label>
+        <input type="text"
+                class="form-control"
+                name="date"
+                required
+                [(ngModel)]="model.date"
+                id="date"
+                placeholder="Date">
+
+        <label for="title">Time</label>
+        <input type="text"
+                class="form-control"
+                name="time"
+                required
+                [(ngModel)]="model.time"
+                id="time"
+                placeholder="Time">
+</div>
 </div>
 
 <div class='row'>     
-<div class="px-3" *ngIf= "!todo.isDone"><button type="button" class="btn btn-info">isDone</button></div>
-<div class="px-3" *ngIf= "todo.alarmOn"><button type="button" class="btn btn-danger">Turn off Alarm</button></div>
-<div class="px-3" *ngIf= "!todo.alarmOn"><button type="button" class="btn btn-success">Turn on Alarm</button></div>
-<button type="button" class="btn btn-secondary px-3">Edit</button>
+<div class="px-3" *ngIf= "!model.isDone"><button type="button" class="btn btn-info">isDone</button></div>
+<div class="px-3" *ngIf= "model.alarmOn"><button type="button" class="btn btn-danger">Turn off Alarm</button></div>
+<div class="px-3" *ngIf= "!model.alarmOn"><button type="button" class="btn btn-success">Turn on Alarm</button></div>
+<button type="button" class="btn btn-secondary px-3" (click)="onEditClick()">Edit</button>
 </div>
 

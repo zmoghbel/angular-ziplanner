@@ -32,6 +32,22 @@ export class TodoEffects {
     );
   });
 
+  loadTodo$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(fromTodoAction.loadTodo),
+      mergeMap(action =>
+        this.todoService.getTodo(action.id).pipe(
+          map(todo =>
+            fromTodoAction.loadTodoSuccess({ selectedTodo: todo })
+          ),
+          catchError(error =>
+            of(fromTodoAction.loadTodoFailure({ error }))
+          )
+        )
+      )
+    )
+    });
+
   updateTodo$ = createEffect(() => {
     return this.actions$.pipe(
         ofType(fromTodoAction.updateTodo),

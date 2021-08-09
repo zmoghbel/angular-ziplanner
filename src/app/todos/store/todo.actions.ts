@@ -20,6 +20,23 @@ export const loadTodoListFailure = createAction(
   props<{ error: any }>()
 );
 
+// Load Todo
+
+export const loadTodo = createAction(
+  "[Todo Details Component] Load Todo",
+  props<{ id: number }>()
+);
+
+export const loadTodoSuccess = createAction(
+  "[Todo Effect] Load Todo Success",
+  props<{ selectedTodo: Todo }>()
+);
+
+export const loadTodoFailure = createAction(
+  "[Todo Effect] Load Todo Failure",
+  props<{ error: any }>()
+);
+
 // Add Todo
 
 export const addTodo = createAction(

@@ -7,14 +7,16 @@ export const todoesFeatureKey = 'todos';
 
 export interface TodoState extends EntityState<Todo> {
   // additional entities state properties
-  error: any
+  error: any;
+  selectedTodo : Todo;
 }
 
 export const adapter: EntityAdapter<Todo> = createEntityAdapter<Todo>();
 
 export const initialState: TodoState = adapter.getInitialState({
   // additional entity state properties
-  error: null
+  error: null,
+  selectedTodo: null
 });
 
 
@@ -42,6 +44,18 @@ export const reducer = createReducer(
       }
     }
   ),
+  on(TodoActions.loadTodoSuccess, (state, action) => {
+    return {
+      ...state,
+      selectedTodo: action.selectedTodo
+    };
+  }),
+  on(TodoActions.loadTodoFailure, (state, action) => {
+    return {
+      ...state,
+      error: action.error
+    };
+  }),
   on(TodoActions.updateTodo,
     (state, action) => adapter.updateOne(action.todo, state)
   ),

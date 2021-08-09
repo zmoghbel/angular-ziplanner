@@ -6,7 +6,8 @@ export class Todo{
     public description: string;
     public isDone: boolean = false;
     public alarmOn: boolean = false;
-
+    
+    /*
     constructor(id: number, title: string, date: string, time: string, isDone: boolean, alarmOn: boolean){
         this.id = id;
         this.title = title;
@@ -14,5 +15,5 @@ export class Todo{
         this.time = time;
         this.isDone = isDone;
         this.alarmOn = alarmOn;
-    }
+    }*/
 }
